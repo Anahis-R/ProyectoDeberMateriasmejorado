@@ -168,12 +168,14 @@ namespace IUWindowsForms
             this.toolStripButtonGuardar.Name = "toolStripButtonGuardar";
             this.toolStripButtonGuardar.Size = new System.Drawing.Size(20, 22);
             this.toolStripButtonGuardar.Text = "Gaurdar";
+            this.toolStripButtonGuardar.Click += new System.EventHandler(this.toolStripButtonGuardar_Click);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(62, 22);
             this.toolStripLabel1.Text = "Guardar";
+            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripButtonGuardar_Click);
             // 
             // toolStripSeparator1
             // 

@@ -12,16 +12,17 @@ namespace IUWindowsForms
 {
     public partial class Actualizar : Form
     {
-        public Actualizar(string codMaterias)
+        private String mCodMateria;
+        public Actualizar(String codMaterias)
         {
             InitializeComponent();
-            this.mCodMaterias = codMaterias;
+            this. mCodMateria = codMaterias;
 
         }
 
         private void Actualizar_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show("El codigo es :" + this.mCodMateria);
+            
             this.txtCodigo.Text = mCodMateria;
             ProyectoMaterias.Materias p = new ProyectoMaterias.Materias();
 
@@ -39,5 +40,32 @@ namespace IUWindowsForms
             this.Close();
         }
 
+
+        private void toolStripButtonGuardar_Click(object sender, EventArgs e)
+        {
+            if (this.mCodMateria.Length > 0)
+
+            {
+                ProyectoMaterias.Materias persona = new ProyectoMaterias.Materias();
+                persona.codMaterias = mCodMateria;
+                persona.codMaterias = this.txtCodigo.Text;
+                persona.nombreMateria = this.txtNombre.Text;
+                persona.nivel = int.Parse(this.cmbNivel.Text);
+                persona.carrera = this.cmbCarrera.Text;
+
+
+                int x = ProyectoMaterias.MateriasDAO.actualizar(persona);
+
+                if (x > 0)
+                {
+
+                    MessageBox.Show("Registro Aactualizar con exito!");
+                }
+
+                else
+                    MessageBox.Show("No se pudo actualizar el registro!");
+            }
+
+        }
     }
 }
